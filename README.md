@@ -6,11 +6,21 @@ As cost can differ alot based on how the HVAC system is operated, in this projec
 
 A) Fixed parameters :
 
-  <ul>heat_mass_capacity </ul>
+  1) heat_mass_capacity : capacity of the building's heat mass [J/K]
+  2) heat_transmission:            heat transmission to the outside [W/K]
+  3) maximum_cooling_power:        [W] (<= 0)
+  4) maximum_heating_power:        [W] (>= 0)
+  5) time_step_size:               [s]
+  6) conditioned_floor_area:       [m**2]
 
-		heat_mass_capacity:           capacity of the building's heat mass [J/K]
-		* heat_transmission:            heat transmission to the outside [W/K]
-		* maximum_cooling_power:        [W] (<= 0)
-		* maximum_heating_power:        [W] (>= 0)
-		* time_step_size:               [s]
-		* conditioned_floor_area:       [m**2]
+B) Variable parameters :
+
+  7) current heating / cooling power
+  8) current internal temperature
+  9) current external temperature
+  
+Based on these 9 parameters at particular time t, the heating/cooling power at the next time interval t+1 is decided. This decision of deciding the heating cooling power is where the cost factor is affected. Different systems will give different outputs and their efficiency will be measured based on the cost difference.
+
+In this model I have used a Deep Q-Learning model to learn from the data and run the predictions. For the data of external temperture I have used open source external temperature data. This data is combined and cleaned in <b>datacleaning.ipynb.</b>
+
+
