@@ -23,4 +23,8 @@ Based on these 9 parameters at particular time t, the heating/cooling power at t
 
 In this model I have used a Deep Q-Learning model to learn from the data and run the predictions. For the data of external temperture I have used open source external temperature data. This data is combined and cleaned in <b>datacleaning.ipynb.</b>
 
+In the notebook <b>temperature_simulator_collab.ipynb</b>,  I have created a class Building which has all the fixed parameters associated to it. Based on the new heating and cooling power decided by the model, the building's temperature changes and then this new temperature along with the heating cooling power is used to predict the next step.
+
+As shown, after training and running the model, the new system shows significantly better performance than conventional formula based HVAC systems. By training the model on more data, it will get more robust and better
+
 
